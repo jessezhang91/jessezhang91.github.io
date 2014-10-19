@@ -1,0 +1,20 @@
+.contact {
+	position: fixed;
+	bottom: 0;
+	right: 0;
+	z-index: (@slide-layers + 1) * 1000;
+
+	max-width: 90vw;
+
+	padding: 15px 30px;
+	@media (max-width: 800px) {
+		padding: 10px 20px;
+	}
+	@media (max-width: 500px) {
+		padding: 5px 10px;
+	}
+	background-color: rgba(255, 255, 255, .35);
+
+	text-align: right;
+	pointer-events: none;
+}

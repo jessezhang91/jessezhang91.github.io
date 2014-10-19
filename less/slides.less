@@ -1,0 +1,76 @@
+@slide-layers: 10;
+@perspective: @slide-layers / 2;
+
+.container {
+	perspective: ~"@{perspective}px";
+	height: 100vh;
+	overflow-x: hidden;
+	overflow-y: auto;
+	transform-style: preserve-3d;
+}
+
+.slide {
+	position: relative;
+	width: 100%;
+	min-height: 100vh;
+	overflow: hidden;
+}
+
+.layer-level(@n, @align: true) {
+	@z: -@n;
+	@scale: 1 + @n/@perspective;
+	& when (@align) {
+		@x: -0.025 * @n * @n + 0.7 * @n; // Alignment fix
+		.transform(translateZ(unit(@z, px)) scale(@scale) translateX(unit(@x, px)));
+	}
+	& when not (@align) {
+		.transform(translateZ(unit(@z, px)) scale(@scale));
+	}
+	// z-index: (@slide-layers - @n) * 1000;
+}
+.make-layers() {
+	.pos(@n) when (@n =< @slide-layers) {
+		.layer-@{n} {
+			.layer-level(@n);
+		}
+		.pos(@n + 1);
+	}
+	.pos(0);
+}
+
+.layer {
+	position: absolute;
+	width: 100%;
+	height: 100vh;
+	top: 0;
+	right: 0;
+	bottom: 0;
+	left: 0;
+	transform-style: preserve-3d;
+
+	.display(flex);
+}
+.make-layers();
+
+.layer-bg {
+	.layer-level(@slide-layers, false);
+
+	
+
+	& > .bg {
+		width: 100%;
+		height: 100%;
+
+		.background-size(cover);
+		.background-origin(border-box);
+		background-position: center;
+		background-repeat: no-repeat;
+
+		&.bg-blur {
+			@blur: 6px;
+			margin: -@blur * 2;
+			padding: @blur * 2;
+			.blur(@blur);
+		}
+	}
+}

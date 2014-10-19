@@ -1,0 +1,1 @@
+$(document).ready(function(){var o=5;$(".container").on("scroll",function(){var t=$(window).height(),n=$(".container").scrollTop(),c=$(".contact"),r=c.outerHeight()*o,i=(n-t/o-r)/o;c.css("bottom",Math.min(0,i))}).trigger("scroll")});

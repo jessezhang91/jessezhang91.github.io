@@ -1,0 +1,59 @@
+.font-size(@size) {
+	font-size: unit(@size, px);
+	@media (max-width: 800px) {
+		font-size: unit(ceil(@size * .75), px);
+	}
+	@media (max-width: 500px) {
+		font-size: unit(ceil(@size * .5), px);
+	}
+}
+
+html, body {
+	font-family: Roboto;
+	.font-size(16);
+	-webkit-font-smoothing: antialiased;
+}
+
+h1, h2, h3, h4, h5, h6, .heading {
+	font-family: Karma;
+	font-weight: 300;
+}
+
+.make-font-sizes() {
+	@sizes: 8, 10, 12, 14, 16, 18, 20, 24, 28, 32, 36, 40, 48, 56, 64, 72, 84, 96;
+	.loop(@i: length(@sizes)) when (@i > 0) {
+		@size: extract(@sizes, @i);
+		.font-size-@{size} {
+			.font-size(@size);
+		}
+		.loop((@i - 1));
+	}
+	.loop;
+}
+.make-font-sizes;
+
+.text-left {
+	text-align: left;
+}
+.text-center {
+	text-align: center;
+}
+.text-right {
+	text-align: right;
+}
+
+.text-black {
+	color: black;
+}
+.text-white {
+	color: white;
+}
+
+a {
+	color: #333;
+	text-decoration: none;
+	&:hover {
+		color: black;
+		text-decoration: underline;
+	}
+}

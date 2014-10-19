@@ -1,0 +1,53 @@
+.slide-heading {
+	.heading;
+	.font-size(60);
+
+	line-height: 1em;
+
+	padding: 10vh 5vw;
+	opacity: .65;
+}
+
+.content-box {
+	margin: 0 auto;
+	align-self: center;
+	max-width: 90vw;
+
+	padding: 50px;
+	@media (max-width: 800px) {
+		padding: 25px;
+	}
+	@media (max-width: 500px) {
+		padding: 10px;
+	}
+	background-color: rgba(255, 255, 255, .35);
+
+	ul {
+		text-align: left;
+		margin: 0 0 0 10px;
+		padding: 0 0 0 10px;
+		
+		&.inline {
+			display: inline-block;
+		}
+	}
+
+	table {
+		margin: 0 auto;
+		text-align: left;
+
+		td {
+			padding: 0 50px;
+			@media (max-width: 800px) {
+				padding: 0 30px;
+			}
+			@media (max-width: 500px) {
+				padding: 0 15px;
+			}
+		}
+	}
+
+	&.content-box-light {
+		background-color: rgba(255, 255, 255, .75);
+	}
+}
