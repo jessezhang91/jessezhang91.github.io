@@ -680,3 +680,116 @@ a:hover {
     padding: 5px 10px;
   }
 }
+.menu-container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 100vh;
+  z-index: 11000;
+  display: -webkit-box;
+  display: -moz-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+}
+.menu {
+  align-self: center;
+  padding: 25px 110px 25px 0;
+  -webkit-transition: padding 0.2s ease-in-out;
+  -moz-transition: padding 0.2s ease-in-out;
+  -o-transition: padding 0.2s ease-in-out;
+  transition: padding 0.2s ease-in-out;
+}
+@media (max-width: 800px) {
+  .menu {
+    padding-right: 80px;
+  }
+}
+@media (max-width: 500px) {
+  .menu {
+    padding-right: 55px;
+  }
+}
+.menu:hover {
+  padding: 25px 10px 25px 0;
+}
+.menu:hover ul {
+  width: 120px;
+}
+@media (max-width: 800px) {
+  .menu:hover ul {
+    width: 90px;
+  }
+}
+@media (max-width: 500px) {
+  .menu:hover ul {
+    width: 65px;
+  }
+}
+.menu ul {
+  margin: 0;
+  padding: 0;
+  list-style-type: none;
+  overflow: hidden;
+  width: 5px;
+  -webkit-transition: width 0.2s ease-in-out;
+  -moz-transition: width 0.2s ease-in-out;
+  -o-transition: width 0.2s ease-in-out;
+  transition: width 0.2s ease-in-out;
+}
+.menu ul li {
+  line-height: 2em;
+  white-space: nowrap;
+}
+@media (max-width: 800px) {
+  .menu ul li {
+    line-height: 3em;
+  }
+}
+@media (max-width: 500px) {
+  .menu ul li {
+    line-height: 4em;
+  }
+}
+.menu ul li a {
+  cursor: pointer;
+  display: block;
+  padding-right: 10px;
+  color: black;
+  text-decoration: none;
+  background-color: rgba(255, 255, 255, 0.35);
+}
+.menu ul li a:hover {
+  background-color: rgba(255, 255, 255, 0.75);
+}
+.menu ul li a:before {
+  content: ".";
+  color: rgba(0, 0, 0, 0);
+  display: inline-block;
+  width: 5px;
+  margin-right: 5px;
+}
+.menu ul li.menu-item-about a:before {
+  background-color: #dfff00;
+}
+.menu ul li.menu-item-education-cornell a:before {
+  background-color: #b31b1b;
+}
+.menu ul li.menu-item-skills a:before {
+  background-color: #00a6ff;
+}
+.menu ul li.menu-item-work-tapad a:before {
+  background-color: #253746;
+}
+.menu ul li.menu-item-work-corning a:before {
+  background-color: #0068a7;
+}
+.menu ul li.menu-item-work-campusamp a:before {
+  background-color: #33b3f1;
+}
+.menu ul li.menu-item-projects-opensource a:before {
+  background-color: #ffffff;
+}
+.menu ul li.menu-item-volunteer a:before {
+  background-color: #fdbc33;
+}
