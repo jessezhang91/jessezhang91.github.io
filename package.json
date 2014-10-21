@@ -20,5 +20,5 @@
     "gulp-plumber": "~0.6.6",
     "gulp-file-include": "~0.5.1"
   },
-  "private": false
+  "private": true
 }
